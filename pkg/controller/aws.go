@@ -40,6 +40,7 @@ import (
 	"github.com/crossplane-contrib/provider-aws/pkg/controller/apigatewayv2/stage"
 	"github.com/crossplane-contrib/provider-aws/pkg/controller/apigatewayv2/vpclink"
 	athenaworkgroup "github.com/crossplane-contrib/provider-aws/pkg/controller/athena/workgroup"
+	"github.com/crossplane-contrib/provider-aws/pkg/controller/autoscaling/autoscalinggroup"
 	"github.com/crossplane-contrib/provider-aws/pkg/controller/batch/computeenvironment"
 	batchjob "github.com/crossplane-contrib/provider-aws/pkg/controller/batch/job"
 	"github.com/crossplane-contrib/provider-aws/pkg/controller/batch/jobdefinition"
@@ -346,6 +347,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		batchjob.SetupJob,
 		emrcontainersjobrun.SetupJobRun,
 		emrcontainersvirtualcluster.SetupVirtualCluster,
+		autoscalinggroup.SetupAutoscalingGroup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
